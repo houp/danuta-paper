@@ -1,0 +1,45 @@
+# Core LaTeX build artifacts
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.fdb_latexmk
+*.fls
+*.idx
+*.ilg
+*.ind
+*.ist
+*.lof
+*.log
+*.lot
+*.out
+*.run.xml
+*.synctex.gz
+*.toc
+
+# Extended LaTeX outputs and listings
+*.acr
+*.acn
+*.alg
+*.dvi
+*.glg
+*.glo
+*.gls
+*.glsdefs
+*.lol
+*.nav
+*.ps
+*.pyg
+*.snm
+*.thm
+*.vrb
+
+# Latexmk and auxiliary tool directories
+_latexmk
+_minted*
+
+# OS and editor cruft
+.DS_Store
+*.swp
+.idea/
+.vscode/
