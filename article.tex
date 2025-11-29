@@ -1,22 +1,12 @@
-\documentclass[pdflatex,sn-mathphys-num]{sn-jnl}% Springer Nature article style
-\usepackage{microtype}%
+\documentclass[a4paper,pdflatex,sn-mathphys-num]{sn-jnl}% Springer Nature article style
 
-\usepackage{graphicx}%
-\usepackage{multirow}%
+\usepackage{microtype}%
 \usepackage{amsmath,amssymb,amsfonts}%
 \usepackage{amsthm}%
 \usepackage{mathrsfs}%
-\usepackage[title]{appendix}%
 \usepackage{xcolor}%
-\usepackage{textcomp}%
-\usepackage{manyfoot}%
-\usepackage{booktabs}%
-\usepackage{algorithm}%
-\usepackage{algorithmicx}%
-\usepackage{algpseudocode}%
-\usepackage{listings}%
+\usepackage{orcidlink}%
 
-%% Theorem styles provided by sn-jnl.cls
 \theoremstyle{thmstyleone}%
 \newtheorem{theorem}{Theorem}%
 \newtheorem{proposition}[theorem]{Proposition}%
@@ -28,116 +18,73 @@
 \theoremstyle{thmstylethree}%
 \newtheorem{definition}{Definition}%
 
-\raggedbottom
-%%\unnumbered% Uncomment this for unnumbered level heads
+\begin{document} 
 
-\begin{document}
+\title{A Decade of the Gdańsk School of Cellular Automata}
 
-\title[Review of the Gdańsk School of Cellular Automata]{A Decade of the Gdańsk School of Cellular Automata: Research Lines and Contributions}
+\author[1]{\fnm{Barbara} \sur{Wolnik}\,\orcidlink{0000-0003-2935-5529}}
+\author*[2]{\fnm{Witold} \sur{Bołt}\,\orcidlink{0000-0001-6787-2100}}\email{Witold.Bolt@jit.team}
+\author[1]{\fnm{Antoni} \sur{Augustynowicz}\,\orcidlink{0000-0002-0748-4867}}
+\author[2]{\fnm{Aleksander} \sur{Bołt}\,\orcidlink{0000-0002-4888-2722}}
+\author[3]{\fnm{Marcin} \sur{Dembowski}\,\orcidlink{0000-0002-5824-9779}}
+\author[1]{\fnm{Maciej} \sur{Dziemiańczuk}\,\orcidlink{0000-0002-0553-7750}}
+\author[4]{\fnm{Adam} \sur{Dzedzej}\,\orcidlink{0000-0002-1974-7927}}
+\author[1]{\fnm{Dominik} \sur{Falkiewicz}\,\orcidlink{0000-0001-7755-7745}}
+\author[1]{\fnm{Bartosz} \sur{Makuracki}\,\orcidlink{0000-0003-1102-6321}}
+\author[1]{\fnm{Anna} \sur{Nenca}\,\orcidlink{0000-0003-2746-1061}}
+\author[5]{\fnm{Aleksander} \sur{Wardyn}}
 
-%%=============================================================%%
-%% Replace the placeholder author and affiliation details below %%
-%%=============================================================%%
-\author*[1]{\fnm{Witold} \sur{Bo{\l}t}}\email{Witold.Bolt@ug.edu.pl}
-\author[1]{\fnm{Barbara} \sur{Wolnik}}
-\author[1]{\fnm{Anna} \sur{Nenca}}
-\author[1]{\fnm{Maciej} \sur{Dziemia{\'n}czuk}}
-\author[1]{\fnm{Adam} \sur{Dzedzej}}
-\author[1]{\fnm{Antoni} \sur{Augustynowicz}}
-\author[1]{\fnm{Marcin} \sur{Dembowski}}
-\author[1]{\fnm{Bartosz} \sur{Makuracki}}
-\author[1]{\fnm{Dominik} \sur{Falkiewicz}}
+\affil[1]{\orgdiv{Faculty of Mathematics, Physics and Informatics}, \orgname{University of Gdańsk}, \orgaddress{\street{Wita Stwosza 57}, \city{Gdańsk}, \postcode{80-308}, \country{Poland}}}
+\affil[2]{\orgname{Jit Team}, \orgaddress{\street{Łużycka 8C}, \city{Gdynia}, \postcode{81-537}, \country{Poland}}}
+\affil[3]{\orgname{Xebia Poland}}
+\affil[4]{\orgname{Gemini}}
+\affil[5]{\orgname{CodeComply.Ai}}
 
-\affil*[1]{\orgdiv{Faculty of Mathematics, Physics and Informatics}, \orgname{University of Gdańsk}, \orgaddress{\street{Wita Stwosza 57}, \city{Gdańsk}, \postcode{80-308}, \state{Pomerania}, \country{Poland}}}
+\abstract{The Gdańsk School of Cellular Automata (GSCA) has, over the last decade, developed a coherent program that bridges theory with exploratory computation to study various aspects of Cellular Automata. In this paper, we review the key results of the group on (i) identifying cellular automata from partial, noisy observations, (ii) affine continuous cellular automata and their links to stochastic and deterministic rules, (iii) density classification, (iv) parity classification, and (v) number-conserving cellular automata across uniform, non-uniform, and non-square grids, including reversibility and split-and-perturb decompositions. This survey is written to honor the memory of prof.\,Danuta Makowiec who directly motivated the creation of GSCA and influenced the research methodology used by the group.}
 
-\abstract{The Gdańsk School of Cellular Automata (GSCA) is a research collective that has produced a coherent body of work on cellular automata over the last decade. This review catalogues GSCA publications, classifies them into five research lines, and synthesises recurring methodological patterns. We highlight advances in the identification and inference of cellular automata, continuous density-classifying models, number-conserving and non-uniform frameworks, parity-focused investigations, and community tooling. The survey is intended as a living blueprint for ongoing collaborative work and as a reference for researchers entering the field.}
-
-\keywords{cellular automata, number-conserving cellular automata, density classification problem, parity problem, system identification}
+\keywords{cellular automata, affine continuous cellular automata, system identification, density classification problem, parity problem, number-conserving cellular automata, reversibility, non-uniform cellular automata}
 
 \maketitle
 
 \section{Introduction}\label{sec:introduction}
+The scientific contributions of prof.\, Danuta Makowiec to the theory and applications of Cellular Automata (CAs) are widely recognized through her numerous research projects, publications, and conference contributions.
+Beyond her outstanding academic achievements, prof.\, Makowiec was also an exceptional teacher and mentor, deeply respected by her students and collaborators alike.
+She delivered lectures and conducted computer laboratories within courses on ``Cellular Automata'' and ``Complex Systems'', inspiring generations of students through her intellectual passion and personal dedication.
 
-The Gdańsk School of Cellular Automata (GSCA) brings together researchers based primarily at the University of Gdańsk. Since 2015, the group has focused on understanding how local interaction rules in cellular automata (CA) generate global behaviour, yielding contributions that span stochastic decomposition, system identification, density classification, number conservation, parity solving, and supportive tooling.\footnote{Throughout the manuscript we collectively refer to Witold Bo{\l}t, Barbara Wolnik, Anna Nenca, Maciej Dziemia{\'n}czuk, Adam Dzedzej, Antoni Augustynowicz, Marcin Dembowski, Bartosz Makuracki, and Dominik Falkiewicz as GSCA.}
+A distinguishing feature of her academic activity was a teaching philosophy rooted in the harmonious integration of rigorous mathematical reasoning with computer simulation and \emph{experimentation}.
+While such a methodology is well established in the physical sciences, it represented an innovative and formative experience for young mathematicians and computer scientists attending her courses.
+For many of them, this approach not only shaped their understanding of complex systems, but also decisively influenced their scientific identity.
 
-Early work dissected stochastic CA into deterministic components, laying methodological foundations for subsequent identification studies.\cite{BoltBaetensDeBaets2015JOCS} In contrast, the most recent publications examine the structure and reversibility of state- and number-conserving automata, culminating in characterisations for radius-one rules and directed exploration graphs.\cite{WolnikDziemianczukDeBaets2025NonlinearDynamics,WolnikDziemianczukMakuracki2025DirectedGraph} This review organises the GSCA corpus into thematic research lines and distils shared techniques and open questions.
+It was this unique educational atmosphere—and, above all, the research paradigm uniting theory with experimentation—that motivated one of prof.\, Makowiec's former computer science students, Witold Bołt, and a theoretical mathematician, Barbara Wolnik, to pursue systematic investigations into the properties of CAs.
+This partnership gave rise to the Gdańsk School of Cellular Automata (GSCA).
+The research carried out within GSCA focuses primarily on theoretical aspects of CAs, with particular emphasis on number-conserving rules, global computational capabilities (notably density and parity classification), and the problem of rule identification.
+Over the past decade, members of GSCA have published more than 30 peer-reviewed articles and presented their results at more than 20 international conferences and workshops.
+Moreover, as a direct outcome of research conducted within the group, two members defended their master's theses (Aleksander Bołt and Aleksander Wardyn), three members completed their PhD dissertations (Adam Dzedzej, Witold Bołt, and Marcin Dembowski), and finally, Barbara Wolnik obtained her habilitation.
 
-\section{Methods}\label{sec:methods}
+This article surveys and synthesizes the results obtained by GSCA.
+Although prof.\, Makowiec was not directly involved in the work reported here, her profound and lasting influence on the group—as a mentor, colleague, and source of inspiration—permeates the research presented in this paper.
+In this sense, the work discussed in this article stands as a natural continuation of her scientific legacy.
 
-We carried out a narrative review of GSCA publications between 2015 and 2025. Indexed sources included IEEE Xplore, SpringerLink, ScienceDirect, Elsevier's Information Sciences, and arXiv, complemented with internal tooling resources. Publications were mapped to research lines following an iterative reading of abstracts and conclusions, emphasising problem statements, modelling assumptions, and evaluation protocols. Each work is referenced in the sections that follow and summarised in Table~\ref{tab:research-lines}.
+The primary aim of this article is to honor the memory of prof.\, Danuta Makowiec and to express our deepest gratitude for her inspiration, mentorship, and enduring influence.
+We dedicate this work to her with respect, admiration, and heartfelt remembrance.
 
-\section{Results}\label{sec:results}
+\section{Identification of CAs}\label{sec:identification}
+We built an identification pipeline that recovers CA rules from partial or noisy space--time traces. Evolutionary search handles bounded time gaps in incomplete observations \cite{bot2015CEC201,bolt2020TCYB20}, while frequency-based estimators address $\alpha$-asynchronous and diploid rules and can impute missing cells \cite{bot2016978331,bot2017978331,bot2019jbiosy}.
 
-\subsection{Identification and inference of cellular automata}
+\section{Affine Continuous CAs}\label{sec:accas}
+Affine continuous CAs (ACCAs) can be expressed as convex combinations of classical deterministic rules, which links them conceptually to stochastic mixtures and clarifies how continuous dynamics relate to stochastic CA behavior \cite{bot2015jjocs2}. Legal outer-totalistic ACCAs exhibit rich dynamics and multiple modes of sensitivity to parameters, grid size, and single-site perturbations \cite{wolnik2022s11071}. These properties underpin later constructions for density and parity classification tasks.
 
-The identification programme investigates how to reconstruct local rules from partial or noisy data. Foundationally, GSCA formalised stochastic CA decomposition via deterministic and probabilistic layers, clarifying identifiability limits under incomplete observations.\cite{BoltBaetensDeBaets2015JOCS} The team explored evolutionary search to infer candidate local rules from fragmentary trajectories, demonstrating competitive fitness-based reconstruction on benchmark datasets.\cite{BoltBaetensDeBaets2015CEC} Later, a statistical framework for diploid CA incorporated allele dominance and incomplete data, first as a conference contribution and subsequently with an extended probabilistic treatment, providing confidence intervals for rule recovery.\cite{BoltEtAl2017TPNC,BoltEtAl2019Biosystems} Collectively, these works show how Bayesian and evolutionary strategies complement one another, with decomposition reducing search dimensionality and enabling targeted optimisation.
+\section{Density Classification Problem}\label{sec:dcp}
+Our work began with the relaxed $\alpha$-DCT formulation for continuous CAs \cite{bolt2014}. Finite-size ACCAs solve fixed-length instances \cite{dembowski2017s11047}, and most density-conserving ACCAs of radius one succeed on relaxed variants \cite{wolnik2017aa7d86,wolnik2016978331,8617353}. Together these results frame ACCAs as a viable alternative to classical binary rules for density classification.
 
-\subsection{Continuous density classification}
+\section{Parity Problem}\label{sec:parity}
+We closed long-standing gaps on the minimal neighborhood for parity classification: no one-dimensional CA with a six-cell neighborhood solves parity \cite{NENCA2024114923}. A proof-backed fix of the BFO construction reinstates a single-rule solution, confirming that parity is solvable by one CA rule \cite{wolnik2025cellularautomatareallysolve}.
 
-GSCA adapted the classic density classification problem to continuous-state settings, constructing affine continuous automata that preserve density while reaching consensus.\cite{WolnikEtAl2016Density,WolnikEtAl2017Affine} The research line emphasises structural constraints—affine update rules and conservation laws—that guarantee convergence, and it highlights how continuous extensions can outperform binary counterparts under relaxed criteria. These contributions bridge discrete and continuous CA, offering analytical tools for hybrid systems where density needs controlled evolution.
+\section{Number-Conserving CAs}\label{sec:ncca}
+This line spans characterization, decomposition, reversibility, and non-uniform settings. Survey chapters summarize the landscape and open problems \cite{wolnik2025978303,wolnik2025978303b}. Geometric conditions characterize von Neumann rules and show binary number-conserving CAs are intrinsically one-dimensional \cite{wolnik2017aa89cf,wolnik2019PhysRe}. Split-and-perturb methods yield complete lists and reversible families, including four-state 2D and higher-state cases \cite{dzedzej2019ab25df,wolnik2020jphysd,dzedzej2020jic202,wolnik2020jins20,dzedzej2021jins20,wolnik2022jphysd}. Rotation-symmetric exploration uncovers a seven-state example beyond septenary isomorphism and establishes dimensional thresholds \cite{wolnik2023PhysRe,8685839}. Extensions to triangular grids provide decompositions and enumerations \cite{wolnik2023jtcs20}, while non-uniform elementary rules are fully characterized on finite and infinite grids \cite{wolnik2023jins20,wolnik2023jins20b}. Reversibility on triangular and hexagonal grids is settled via constructive counterexamples and complete tests \cite{wolnik2021500315,wolnik2021s02181,8579003}.
 
-\subsection{Number-conserving cellular automata}\label{subsec:number_conserving}
 
-Number conservation is the most prolific GSCA research line. Initial work characterised neighbourhood constraints ensuring conservation for von Neumann neighbourhoods of range one, aligning local flux formulas with global invariants.\cite{WolnikEtAl2017VonNeumann} A subsequent split-and-perturb decomposition showed that any number-conserving rule can be expressed as the sum of permutative and corrective components, simplifying enumeration and synthesis tasks.\cite{WolnikEtAl2019Split}
 
-Reversibility emerged as a complementary theme: reversible number-conserving automata were catalogued for large state sets, using algebraic invariants to detect invertibility while retaining particle conservation.\cite{WolnikEtAl2022PhysicaD} GSCA then pivoted to non-uniform settings, proving that spatially varying local rules can remain number conserving and documenting unexpected behaviours on infinite grids.\cite{WolnikDziemianczukDeBaets2023InfoSci,WolnikDziemianczukDeBaets2023InfoSciInfinite} Further, an exploration of septenary rules synthesised known reversible constructions, providing a comparative atlas of design techniques.\cite{WolnikEtAl2023NaturalComputing}
-
-Recent studies articulate the search space through graph-based representations and state-conserving catalogues. A directed graph model enables systematic traversal of non-uniform binary rules with radius one and a half, supporting automated discovery pipelines,\cite{WolnikDziemianczukMakuracki2025DirectedGraph} while a survey of radius-one state-conserving automata links conservation constraints to dynamical signatures such as travelling defects and solitons.\cite{WolnikDziemianczukDeBaets2025NonlinearDynamics}
-
-\subsection{Parity-focused investigations}
-
-Building on conservation insights, GSCA addressed the parity problem, demonstrating the impossibility of solving it with six-cell neighbourhood rules and thereby sharpening known bounds.\cite{NencaWolnikDeBaets2024Parity} Subsequent work showed that carefully crafted automata can, in fact, solve parity, reconciling constructive and impossibility perspectives by isolating the necessary structural ingredients.\cite{WolnikEtAl2025ParityFix} These studies position parity as a touchstone for evaluating the expressive power of CA families and for benchmarking synthesis techniques born in the identification and number-conserving lines.
-
-\subsection{Tools and infrastructure}
-
-To support experimentation, GSCA maintains a suite of CA simulators and interactive notebooks, disseminated through a central tooling portal.\cite{Dziemianczuk2023Tools} The platform underpins reproducibility for non-uniform and number-conserving studies, supplying verified implementations of recent rules and decomposition methods.
-
-\begin{table}[t]
-\caption{GSCA publications organised by research line. Citations point to representative works discussed in Section~\ref{sec:results}.}
-\label{tab:research-lines}
-\begin{tabular}{p{0.29\textwidth}p{0.66\textwidth}}
-\toprule
-Research line & Representative publications \\
-\midrule
-Identification and inference & \cite{BoltBaetensDeBaets2015JOCS,BoltBaetensDeBaets2015CEC,BoltEtAl2017TPNC,BoltEtAl2019Biosystems} \\
-Continuous density classification & \cite{WolnikEtAl2016Density,WolnikEtAl2017Affine} \\
-Number-conserving frameworks & \cite{WolnikEtAl2017VonNeumann,WolnikEtAl2019Split,WolnikEtAl2022PhysicaD,WolnikDziemianczukDeBaets2023InfoSci,WolnikDziemianczukDeBaets2023InfoSciInfinite,WolnikEtAl2023NaturalComputing,WolnikDziemianczukMakuracki2025DirectedGraph,WolnikDziemianczukDeBaets2025NonlinearDynamics} \\
-Parity-focused investigations & \cite{NencaWolnikDeBaets2024Parity,WolnikEtAl2025ParityFix} \\
-Tools and infrastructure & \cite{Dziemianczuk2023Tools} \\
-\bottomrule
-\end{tabular}
-\end{table}
-
-\section{Discussion}\label{sec:discussion}
-
-GSCA's research lines are mutually reinforcing. Decomposition and identification methods supply analytical tools that recur in number-conserving and parity studies. Conversely, structural constraints derived from conservation analyses inform search heuristics for identification tasks. The emergence of non-uniform frameworks suggests a broadened design space where heterogeneity can be harnessed without forfeiting conservation guarantees. Tooling efforts close the loop by enabling rapid prototyping and cross-validation.
-
-Two challenges persist. First, integrating continuous and discrete perspectives could reveal hybrid automata capable of solving density and parity tasks simultaneously. Second, extending directed graph exploration to higher radii or dimensions may uncover new reversible or computation-universal families. Addressing both will likely require tighter coupling between algebraic invariants and search-based inference.
-
-\section{Conclusion}\label{sec:conclusion}
-
-This review documents the GSCA's coordinated agenda on cellular automata. By cataloguing contributions across identification, density classification, number conservation, parity, and tooling, we provide a roadmap for future collaborative work. Immediate priorities include extending non-uniform conservation principles to stochastic contexts, testing parity-solving constructions on physical substrates, and deepening tool support for reproducible experimentation. The team remains well positioned to tackle these directions, leveraging a decade of methodological innovation and a cohesive research community.
-
-\backmatter
-
-\bmhead{Supplementary information}
-% Briefly describe any supplementary files supplied with the article.
-
-\bmhead{Acknowledgements}
-% Recognize contributions, funding, or institutional support.
-
-\section*{Declarations}
-\begin{itemize}
-\item Funding
-\item Conflict of interest/Competing interests
-\item Ethics approval and consent to participate
-\item Consent for publication
-\item Data availability
-\item Materials availability
-\item Code availability
-\item Author contribution
-\end{itemize}
-
-\bibliography{ca-biblio}
+\bibliography{papers-with-abstracts}
 
 \end{document}
