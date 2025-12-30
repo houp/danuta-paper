@@ -18,27 +18,32 @@
 \theoremstyle{thmstylethree}%
 \newtheorem{definition}{Definition}%
 
+\newcommand{\ie}{\emph{i.e.}, } 
+\newcommand{\Basia}[1]{{\color{blue}  #1}}
+
 \begin{document} 
 
-\title{A Decade of the Gdańsk School of Cellular Automata}
+\title{Danuta Makowiec and the rise of Gdańsk School of Cellular Automata}
 
 \author[1]{\fnm{Barbara} \sur{Wolnik}}%\,\orcidlink{0000-0003-2935-5529}}
 \author*[2]{\fnm{Witold} \sur{Bołt}}\email{Witold.Bolt@jit.team}%,\orcidlink{0000-0001-6787-2100}
 \author[1]{\fnm{Antoni} \sur{Augustynowicz}}%\,\orcidlink{0000-0002-0748-4867}
 \author[2]{\fnm{Aleksander} \sur{Bołt}}%\,\orcidlink{0000-0002-4888-2722}
-\author[3]{\fnm{Marcin} \sur{Dembowski}}%\,\orcidlink{0000-0002-5824-9779}
+\author[]{\fnm{Marcin} \sur{Dembowski}}%\,\orcidlink{0000-0002-5824-9779}
 \author[1]{\fnm{Maciej} \sur{Dziemiańczuk}}%\,\orcidlink{0000-0002-0553-7750}
 \author[4]{\fnm{Adam} \sur{Dzedzej}}%\,\orcidlink{0000-0002-1974-7927}
 \author[1]{\fnm{Dominik} \sur{Falkiewicz}}%\,\orcidlink{0000-0001-7755-7745}
 \author[1]{\fnm{Bartosz} \sur{Makuracki}}%\,\orcidlink{0000-0003-1102-6321}
 \author[1]{\fnm{Anna} \sur{Nenca}}%\,\orcidlink{0000-0003-2746-1061}
-\author[5]{\fnm{Aleksander} \sur{Wardyn}}
+\author[1]{\fnm{Adam} \sur{Rutkowski}}%\,\orcidlink{0000-0002-8393-8170}
+\author[5]{\fnm{Bernard} \sur{De Baets}}
+
 
 \affil[1]{\orgdiv{Faculty of Mathematics, Physics and Informatics}, \orgname{University of Gdańsk}, \orgaddress{\street{Wita Stwosza 57}, \city{Gdańsk}, \postcode{80-308}, \country{Poland}}}
 \affil[2]{\orgname{Jit Team}, \orgaddress{\street{Łużycka 8C}, \city{Gdynia}, \postcode{81-537}, \country{Poland}}}
-\affil[3]{\orgname{Xebia Poland}}
-\affil[4]{\orgname{Gemini}}
-\affil[5]{\orgname{CodeComply.Ai}}
+%\affil[3]{\orgname{Xebia Poland}}
+\affil[4]{\orgname{Gemini Polska}}
+\affil[5]{\orgname{UGent - TODO}}
 
 \abstract{The Gdańsk School of Cellular Automata (GSCA) has, over the last decade, developed a coherent program that bridges theory with exploratory computation. We review results on (i) identifying cellular automata from partial, noisy observations, (ii) affine continuous cellular automata (ACCAs) and their links to stochastic and deterministic rules, (iii) relaxed density classification using ACCAs, (iv) parity classification bounds and constructive single-rule solutions, and (v) number-conserving and state-conserving cellular automata across uniform, non-uniform, and non-square grids, including split-and-perturb decompositions, graph-based enumerations, reversible subclasses, and traffic-like particle-flow rules. The survey is written in the spirit of prof.\,Danuta Makowiec’s emphasis on combining rigorous analysis with computational experimentation, and aims to serve both as a guide for newcomers and as a blueprint for future collaborative work.}
 
@@ -50,6 +55,12 @@
 The scientific contributions of prof.\, Danuta Makowiec to the theory and applications of Cellular Automata (CAs) are widely recognized through her numerous research projects, publications, and conference contributions.
 Beyond her outstanding academic achievements, prof.\, Makowiec was also an exceptional teacher and mentor, deeply respected by her students and collaborators alike.
 She delivered lectures and conducted computer laboratories within courses on ``Cellular Automata'' and ``Complex Systems'', inspiring generations of students through her intellectual passion and personal dedication.
+\begin{figure}[!ht]
+\centering
+\includegraphics[height=0.3\textwidth]{underconstruction.png}
+\caption{{\color{red}Photo of Danuta (mamy dwa zdjecia, ale jeszcze nie wiemy, czy w ogole jakies damy...}}
+\label{fig:photo}
+\end{figure}
 
 A distinguishing feature of her academic activity was a teaching philosophy rooted in the harmonious integration of rigorous mathematical reasoning with computer simulation and \emph{experimentation}.
 While such a methodology is well established in the physical sciences, it represented an innovative and formative experience for young mathematicians and computer scientists attending her courses.
@@ -69,20 +80,203 @@ The primary aim of this article is to honor the memory of prof.\, Danuta Makowie
 We dedicate this work to her with respect, admiration, and heartfelt remembrance.
 
 \section{Identification of CAs}\label{sec:identification}
-We built an identification pipeline that recovers CA rules from partial or noisy space--time traces. Evolutionary search handles bounded time gaps in incomplete observations \cite{bot2015CEC201,bolt2020TCYB20}, while frequency-based estimators address $\alpha$-asynchronous and diploid rules and can impute missing cells \cite{bot2016978331,bot2017978331,bot2019jbiosy}.
+\Basia{Ten rozdzialik jest jeszcze do napisania i do zrobienia obrazka. Na czerwono jest to co było, a na niebiesko fragment z mojego Autoreferatu - może się przyda.}
 
-\section{Affine Continuous CAs}\label{sec:accas}
-Affine continuous CAs (ACCAs) can be expressed as convex combinations of classical deterministic rules, which links them conceptually to stochastic mixtures and clarifies how continuous dynamics relate to stochastic CA behavior \cite{bot2015jjocs2}. Legal outer-totalistic ACCAs exhibit rich dynamics and multiple modes of sensitivity to parameters, grid size, and single-site perturbations \cite{wolnik2022s11071}. These properties underpin later constructions for density and parity classification tasks.
+{\color{red}We built an identification pipeline that recovers CA rules from partial or noisy space--time traces. Evolutionary search handles bounded time gaps in incomplete observations \cite{bot2015CEC201,bolt2020TCYB20}, while frequency-based estimators address $\alpha$-asynchronous and diploid rules and can impute missing cells \cite{bot2016978331,bot2017978331,bot2019jbiosy}.
+}
 
-\section{Density Classification Problem}\label{sec:dcp}
-Our work began with the relaxed $\alpha$-DCT formulation for continuous CAs \cite{bolt2014}. Finite-size ACCAs solve fixed-length instances \cite{dembowski2017s11047}, and most density-conserving ACCAs of radius one succeed on relaxed variants \cite{wolnik2017aa7d86,wolnik2016978331,8617353}. Together these results frame ACCAs as a viable alternative to classical binary rules for density classification.
+\bigskip
+
+\Basia{
+We dealt with Stochastic Cellular Automata in the following articles \cite{bot2016978331,bot2017978331,bot2019jbiosy} and
+
+
+\begin{itemize}
+    \item[[M1]\!\!\!] Jakub Neumann, Mirosław Szaban, Barbara Wolnik, Witold Bołt: {\it Statistical approach to the binary classification problem with the use of probabilistic cellular automata}, Przegląd badań na Wydziale Matematyki, Fizyki i Informatyki Uniwersytetu Gdańskiego 2021 / Wiesław Laskowski, Marcin Marciniak, Krzysztof Szczygielski (red.), 2021, Wydawnictwo Uniwersytetu Gdańskiego, ISBN 978-83-8206-356-1, pp. 149-160
+\end{itemize}
+
+In \cite{bot2016978331} we present a statistical method, based on frequencies, for identifying so-called $\alpha$-asynchronous Cellular Automata from partial observations, \emph{i.e.} pre-recorded configurations of the system with some cells having an unknown (missing) state. The presented method, in addition to finding the unknown Cellular Automaton, is able to unveil the missing state values with high accuracy.
+
+In \cite{bot2017978331} we focus on the identification of a special class of Stochastic CAs (SCAs), called diploid CAs. The identification method presented in this paper is an extension of the method presented in~[M3]. The presented results form the first step towards establishing a general identification method, based on incomplete observations, for SCAs, as any SCA can be expressed in a form of mixture of a finite number of deterministic CAs, whereas in diploid CAs we allow only for mixing two such CAs.
+
+\cite{bot2019jbiosy} is a continuation of the work on the identification of diploid CAs -- the case of incomplete observations was discussed. The goal of the identification algorithm is to estimate the parameters of the underlying SCA and to estimate the missing states in the observations. 
+
+In [M1] we presented a general idea of improving the accuracy of a CA-based classifier, by using statistics: by repeating the computation multiple times and considering aggregated results, we were able to improve the accuracy of the classification.
+}
+
+\section{Affine Continuous CAs and DCP}\label{sec:accas}
+\Basia{UWAGA! ta sekcja potrzebuje jeszcze dopracowania. Połączyłam dwie sekcje w jedno. Na czerwono jest to co było, a potem jest mój tekst. W mojej części nie ujęłam jeszcze \cite{bot2015jjocs2} zaś \cite{bolt2014} jest ujęte dość powierzchownie, bo nie wiem jak.} 
+
+{\color{red}Affine continuous CAs (ACCAs) can be expressed as convex combinations of classical deterministic rules, which links them conceptually to stochastic mixtures and clarifies how continuous dynamics relate to stochastic CA behavior \cite{bot2015jjocs2}. Legal outer-totalistic ACCAs exhibit rich dynamics and multiple modes of sensitivity to parameters, grid size, and single-site perturbations \cite{wolnik2022s11071}. These properties underpin later constructions for density and parity classification tasks.
+
+DCT: Our work began with the relaxed $\alpha$-DCT formulation for continuous CAs \cite{bolt2014}. Finite-size ACCAs solve fixed-length instances \cite{dembowski2017s11047}, and most density-conserving ACCAs of radius one succeed on relaxed variants \cite{wolnik2017aa7d86,wolnik2016978331,8617353}. Together these results frame ACCAs as a viable alternative to classical binary rules for density classification.}
+
+Continuous CAs can be seen as a generalization of CAs, in which time and space are still discrete, but cells can take states from some infinite (often continuous) set (see Figure~\ref{fig:cca}). 
+Affine Continuous CAs (ACCAs) are the simplest possible such generalization of binary CAs, as they have a local rule that is affine in each variable, and as a result, they are simply convex combinations of classical binary CAs. Although it might seem that such a generalization does not contribute anything significant to the behavior of the resulting dynamical systems, this is not the case.
+
+\begin{figure}[h]
+\centering
+\includegraphics[height=0.5\textwidth]{cca.pdf}
+\caption{Space-time diagram of a sample Continuous CA (time runs from top to bottom).}
+\label{fig:cca}
+\end{figure}
+
+The research we conducted allowed us, for example, to find a complete description of the dynamics of legal outer-totalistic ACCAs (one-dimensional and with radius one)~\cite{wolnik2022s11071}. 
+Thanks to massive numerical simulations, we have been able to partition the rule space in a number of classes with a distinct behavior and a unique combination of computer simulations (sometimes quite advanced) and a panoply of analytical methods allowed us to lay bare the dynamics of each and every one of these ACCAs and confirm all results theoretically. In particular, the results obtained clearly proved that the dynamics of ACCAs is much more rich than their classical counterparts.
+We have also managed to describe the dynamics of so-called density-conserving ACCAs, for which the configuration density does not change in successive time steps~\cite{wolnik2017aa7d86}.
+These preliminary results led us to consider using ACCAs to solve the Density Classification Problem (DCP).
+
+DCP is one of the well-known problems in the field of classical CAs. Essentially, this problem boils down to a quest for a binary CA that is able to determine whether the total number of~1s in its initial binary configuration is greater than the total number of~0s, in such a way that it evolves to a homogeneous configuration of~1s, and~0s otherwise. However, it has long been known that there is no binary CA that solves this problem correctly for any number of cell~\cite{PhysRevLett.74.5148}. Our idea was very simple: since we want to use ACCAs, \ie we have the entire $[0,1]$ as the state set, we may consider a ``relaxed'' version of formulation of DCP, namely, we can replace state 0 in the output by states less than $0.5$ and state 1 by states greater than $0.5$. 
+Having the detailed characterization of one-dimensional density-conserving ACCAs with radius one, it was easy to show that almost all of them solve the relaxed DCPs~\cite{wolnik2017aa7d86}.
+
+Over the past decade, we have intensively investigated the use of ACCA as a potential solution for both classical and relaxed version of DCP~\cite{bolt2014, wolnik2016978331}; in particular for one-dimensional grids with a fixed number of cells~\cite{dembowski2017s11047} or for two-dimensional grids with the von Neumann neighborhood~\cite{8617353}.
 
 \section{Parity Problem}\label{sec:parity}
-We closed long-standing gaps on the minimal neighborhood for parity classification: no one-dimensional CA with a six-cell neighborhood solves parity \cite{NENCA2024114923}. A proof-backed fix of the BFO construction reinstates a single-rule solution, confirming that parity is solvable by one CA rule \cite{wolnik2025cellularautomatareallysolve}.
+
+The Gdańsk group has become heavily involved in one of the most important issues concerning binary cellular automata: the parity problem. The classical parity problem asks whether a cellular automaton can correctly classify any initial configuration (with an odd number of cells) according to whether it contains an even or odd number of 1s.
+The difficulty lies in performing this global classification using only local information, since in a cellular automaton each cell updates its state solely based on its neighbors.
+For this reason, the parity problem is seen as one of the key challenges for understanding the computational capabilities of CAs.
+Research conducted in this area aimed to find answers to two key questions. First, does a binary CA that can solve the parity problem even exist? Second, if it does exist, how complex must it be, where the measure of complexity is the neighborhood size $d$ of such a CA?
+
+The initial results obtained by various researchers were very promising but at the same time somewhat turbulent. In 2013, a paper appeared proposing the first solution to the parity problem: the BFO rule with $d=9$~\cite{BFO2013}.
+Although the underlying idea of the BFO rule was sound, its final specification—both the Look-Up Table (LUT) and the Wolfram code—turned out to be incorrect.
+Proponents of this rule later identified this issue themselves and provided several new canidate rules to solve the parity problem. However, no rigorous mathematical proof has been provided for any of these rules.
+Nevertheless, it has been established that no binary CA with neighborhood size at most five (\ie\ $d\leq 5$) can solve the parity problem.
+Numerous computational searches have also been conducted to find a CA with $d=7$ that can solve the parity problem~\cite{Wolz2008}, all have been unsuccessful (there have even been suspicions that $d=7$ is not enough).
+
+The involvement of the Gdańsk group made it possible to find answers to some of the important questions on this topic.
+First, it was proved that no binary rule with a six-cell neighborhood ($d=6$) can solve the parity problem~\cite{NENCA2024114923}.
+(However, the proof was highly technical and could not be generalized to larger neighborhoods.)
+Second, we were able to diagnose and correct the flaw in the LUT of the original BFO, and, which is more important, in collaboration with the author of the original BFO, present rigorous mathematical proof demonstrating that the corrected BFO rule actually solves the parity problem~\cite{wolnik2025cellularautomatareallysolve} (Figure~\ref{fig:BFO} shows the action of the corrected BFO on sample configurations).
+\begin{figure}[!ht]
+\begin{minipage}[b]{0.45\textwidth}
+\centering
+\includegraphics[width=0.9\textwidth]{nBFO0.pdf}\\
+(a)
+\end{minipage}
+\begin{minipage}[b]{0.45\textwidth}
+\centering
+\includegraphics[width=0.9\textwidth]{nBFO1.pdf}\\
+(b)
+\end{minipage}
+\caption{Action of the corrected BFO on two sample configurations with a length of 1313, which differ by only one bit (time runs from top to bottom).}
+\label{fig:BFO}
+\end{figure}
+
+Thus, now it is known that a nine-cell neighborhood is sufficient to design a binary CA that solves the parity problem, while six cells are insufficient. A gap remains, however: for CAs with neighborhood sizes 
+$d=7$ and $d=8$, no definitive results are currently available.
+
+Moreover, in the course of our research, another question emerged: if we were to relax the requirements of the classical parity problem by ‘half’—that is, ask for a CA that can solve it only for all  configurations with an odd number of ones or only for all configurations with an even number of ones—--would the task become significantly easier for CAs? By ``significantly easier'' we mean that there would exist a binary CA with a smaller neighborhood size that solves such a simplified parity problem. In paper~\cite{nenca2025} we show that no binary CA with neighborhood of size $d=6$ can solve it.
+
+Although this still does not answer the question of whether simplified parity problem is significantly easier for CAs than the classical one,
+we hope that the final answer is now within reach.
+Namely, we have found some collections of binary CAs with $d=7$ that seem to be a perfect candidate to solve the classical parity problem. These CAs correctly verify all configurations of odd length up to size 31, but up to now we have no formal mathematical proof. However, our preliminary investigation in this direction leads us to put forward a bold conjecture that there is a CA with $d=7$ that solves the classical parity problem.
+
+If we can prove that this conjecture is true, it will be possible to conclude all of the above threads. Not only will we know that CAs can solve the parity problem, but we will also know that the simplest one requires 7 cells in the neighborhood. What is more, it will turn out that, contrary to expectations, the simplified parity problem is just as difficult (or easy) for CAs as the classical one.
 
 \section{Number-Conserving CAs}\label{sec:ncca}
-This line spans characterization, decomposition, reversibility, and non-uniform settings. Survey chapters summarize the landscape and open problems \cite{wolnik2025978303,wolnik2025978303b}. Geometric conditions characterize von Neumann rules and show binary number-conserving CAs are intrinsically one-dimensional \cite{wolnik2017aa89cf,wolnik2019PhysRe}. Split-and-perturb methods yield complete lists and reversible families, including four-state 2D and higher-state cases \cite{dzedzej2019ab25df,wolnik2020jphysd,dzedzej2020jic202,wolnik2020jins20,dzedzej2021jins20,wolnik2022jphysd}. Rotation-symmetric exploration uncovers a seven-state example beyond septenary isomorphism and establishes dimensional thresholds \cite{wolnik2023PhysRe,8685839}. Extensions to triangular grids provide decompositions and enumerations \cite{wolnik2023jtcs20}, while non-uniform elementary rules are fully characterized on finite and infinite grids \cite{wolnik2023jins20,wolnik2023jins20b}. Non-uniform number conservation at larger radii is explored via directed-graph representations that enumerate all radius-$1.5$ binary rules \cite{makuracki2025}. State conservation generalizes number conservation, admitting full characterizations for radius-one rules with arbitrary state sets \cite{stateco2025}. Traffic-like, Moore-neighborhood particle-flow rules illustrate applied modeling directions for number-conserving dynamics \cite{falkiewicz2025}. Reversibility on triangular and hexagonal grids is settled via constructive counterexamples and complete tests \cite{wolnik2021500315,wolnik2021s02181,8579003}.
 
+The most work we have put in so far has been in researching number-conserving CAs.
+Number conservation is an important (especially from the point of view of applications) property of CAs and means that the sum of all states in any configuration remains constant throughout the evolution of the system.
+Among the results in this topic, those concerning multidimensional CAs with the von Neumann neighborhood definitely prevail.
+First, using a novel approach based on a geometric analysis of the von Neumann neighborhood in higher dimensions (see Figure~\ref{fig:vN}), we proposed a family of necessary and sufficient conditions for a $d$-dimensional CA to be number conserving, formulated in terms of the local rule~\cite{wolnik2017aa89cf}. These conditions apply for any state set of real numbers, whether it is finite or not, and can be formulated in 
+$(2d+1)\cdot 2^{d^2}$ different but equivalent ways.
+Thus in each particular case we can choose the version that suits us best, so, this is especially useful to describe number-conserving CAs satisfying some additional conditions -- like, for example, rotation symmetry (see, for instance, \cite{dzedzej2021jins20, 8685839, wolnik2023PhysRe}).
+\begin{figure}[!ht]
+\begin{minipage}[b]{0.3\textwidth}
+\centering
+\includegraphics[width=0.9\textwidth]{nbd1d.png}\\
+(a)
+\end{minipage}
+\begin{minipage}[b]{0.3\textwidth}
+\centering
+\includegraphics[width=0.9\textwidth]{nbd2d.png}\\
+(b)
+\end{minipage}
+\begin{minipage}[b]{0.3\textwidth}
+\centering
+\includegraphics[width=0.9\textwidth]{nbd3d.png}\\
+(c)
+\end{minipage}
+\caption{The von Neumann neighborhood  in the case of (a) $d=1$ (b) $d=2$ (c) $d=3$. }
+\label{fig:vN}
+\end{figure}
+
+The next step in our research in this topic was to develop a very useful mathematical tool for studying multidimensional number-conserving CAs with the von Neumann neighborhood: the split-and-perturb decomposition theorem~\cite{wolnik2020jphysd}.
+This theorem states that the local rule of any number-conserving CA with the von Neumann neighborhood can be decomposed into two parts:  a~split function and a perturbation.
+Moreover, the set of all possible split functions has a~very simple structure, while the set of all perturbations forms a linear space and is therefore very easy to describe in terms of a basis.
+
+Both these approaches turned out to be quite easy to implement on a~computer and we were able to find the complete list of all $d$-dimensional number-conserving CAs with the von Neumann neighborhood and the state set $Q$ in many cases of $d$ and $Q$ that had been previously completely beyond the computational capabilities of computers (see, for instance, \cite{dzedzej2019ab25df, dzedzej2020jic202, wolnik2020jphysd, wolnik2022jphysd, data-dziemianczuk-2020, data-dzedzej-2020, data-nenca-2022}).
+
+Additionally, it turned out that the split-and-perturb decomposition theorem can also be a convenient tool for proving some general properties concerning $d$-dimensional number-conserving CAs with the von Neumann neighborhood (never seen before in the literature). 
+For example, it was possible to fully uncover the structure of binary such CAs and it appeared that regardless of the dimension~$d$, all of these cellular automata are trivial, as there are exactly $4\,d+1$ $d$-dimensional binary number-conserving CAs with the von Neumann neighborhood: the identity rule, the shift rules and traffic rules in each of the $2\,d$ directions~\cite{wolnik2019PhysRe} (so they all are intrinsically one-dimensional). 
+Moreover, the split-and-perturb decomposition theorem allowed to characterize all reversible ternary $d$-dimensional number-conserving CAs with the von Neumann neighborhood~\cite{wolnik2020jins20}. Unfortunately it appeared
+that any such a CA is a shift (in some of $2\,d$ directions).
+
+
+The method introduced in~\cite{wolnik2020jphysd} for number-conserving CAs defined on regular $d$-dimensional cubic grids, was later adapted to study number conservation of two-dimensional CAs defined on a regular triangular grid and updating the states of their cells on the basis of the states of the adjacent cells only~\cite{wolnik2023jtcs20}.
+In contrast to the case of cubic grids, in the case of a triangular grid, the split-and-perturb decomposition approach allows to enumerate all $k$-ary such CAs, regardless of the value of $k$. 
+
+A part of our research focuses on an important subclass of number-conserving CAs, the so-called \emph{state-conserving} CAs.
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=0.9\textwidth]{state-conserving.png}
+\caption{There is one-to-one correspondence between the set of all state-conserving one-dimensional CAs with state set $Q$ and with radius one that are not shift rules and the set of all labeled directed graphs with $k$ vertices and not containing a directed path of length two. Here we see a space-time diagram of some such CA and the graph that corresponds to it.}
+\label{fig:sc}
+\end{figure}
+Generally speaking, being state-conserving simply means that for each initial configuration the number of cells in each state is constant throughout the entire evolution of the system.
+Our investigation allowed to characterize all one-dimensional $k$-ary state-conserving CAs with radius one and we were able to enumerate them all, regardless of the value of $k$ (see Figure~\ref{fig:sc}). Moreover, from the aforementioned characterization, it was also very easy to deduce that among them there are only three reversible ones: the identity and the shift rules~\cite{stateco2025}.
+
+
+Recently, our research has also covered $d$-dimensional number-conserving binary CAs with the Moore neighborhood. We are still at the simulation stage in this area, but we already have a very useful tool (the so-called $(\Omega,\Lambda)$ framework describing movements of ones interpreted as particles) that allows us to design hundreds of thousands of interesting two-dimensional number-conserving binary CAs with radius one that have non-trivial dynamics~\cite{falkiewicz2025}. Some of these CAs, despite fulfilling the very binding condition of being number-conserving, exhibit elements of behavior such as the famous Game of Life (see, for example, CA $D$ in Figure~\ref{fig:D}).
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=0.9\textwidth]{fig_06.pdf}
+\caption{An example of an oscillator that occurs in the evolution of one of the two-dimensional number-conserving binary CAs with Moore neighborhood (the so-called CA $D$ described in~\cite{falkiewicz2025}).}
+\label{fig:D}
+\end{figure}
+
+The $(\Omega,\Lambda)$ framework also makes it possible to follow the motion of individual particles. One notable implication of this is that the period of an oscillator can be redefined: instead of the usual definition, it can be taken as the time it takes for all individual particles to return to their original positions. An example of this is shown in Figure~\ref{fig:Dcolors}, which presents an oscillator in CA $D$ whose period differs under the classical and the new approach.
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=0.9\textwidth]{fig_07.pdf}
+\caption{Another example of an oscillator that occurs in the evolution of CA $D$. Since the $(\Omega,\Lambda)$ framework introduced in~\cite{falkiewicz2025} allows us to track the movement of each particle separately, we can mark them with different colors. The example shows that although the arrangement of particles returned to its initial ``shape'', not every particle returned to its original position.}
+\label{fig:Dcolors}
+\end{figure}
+We anticipate that this line of investigation will be brought to completion in the near future.
+
+The research described above also raised many new and interesting questions and yielded several unexpected results that seem to contradict earlier intuitions (see, for instance the survey papers~\cite{wolnik2025978303, wolnik2025978303b}. All this shows that we still do not fully understand these seemingly very simple dynamic systems.
+
+
+\section{Non-uniform CAs}\label{sec:non-u}
+
+In recent years, GSCA has carried out intensive research on non-uniform cellular automata, that is, automata which are not necessarily spatially homogeneous.
+The central focus of this work is the number-conserving property of such dynamical systems. Currently, the research is limited to one-dimensional binary automata, with plans to broaden the scope in the future.
+To date, we have successfully identified and thoroughly characterized the dynamics of all number-conserving non-uniform elementary CAs (in which individual cells are allowed to have its own local updating rule belonging to Wolfram's set of $256$ elementary local rules), considering both finite grids and the infinite grid.
+
+
+In the case of finite grids, it has been shown that, irrespective of whether periodic or null boundary conditions are considered, any such CA is either a classical uniform number-conserving elementary CA or it is a conglomerate of components, which can be of four different types only (see Figure~\ref{fig:n-u}). Moreover, these components exhibit very limited dynamical behavior, since they evolve independently of one another, as if they were separated by impermeable boundaries. Consequently, for all such non-uniform CAs, every configuration eventually reaches a fixed point or becomes periodic with period two~\cite{wolnik2023jins20}.
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=0.8\textwidth]{non-uniform.pdf}
+\caption{Illustration of the evolution of some number-conserving non-uniform elementary CA on a finite grid (with periodic boundary conditions). Each such a CA  is either a classical (uniform) number-conserving elementary CA or it is a conglomerate of components, which can be of four different types only ($Id$, $S$, $A_n$ and $B_n$) and each of them has a very poor dynamics. Moreover, each component of the conglomerate ``lives its own life", as if there were impermeable barriers between adjacent components.}
+\label{fig:n-u}
+\end{figure}
+This characterization made it possible, among other results, to enumerate all number-conserving non-uniform elementary cellular automata, as well as those that are reversible. It was shown that for a grid consisting of $n$ cells, the number of number-conserving non-uniform elementary CAs is $F_n^2$, while the number of reversible ones is $F_n$, where $F_n$ denotes the $n$th Fibonacci number.
+
+The case of the infinite grid came as a big surprise. Previously, it was believed that the answer to what number-conserving non-uniform elementary CAs on the infinite grid look like could be obtained by performing simulations on finite grids of increasing length.
+However, it turned out that, unlike when considering number conservation for classical CAs, the infinite grid cannot be treated as a limiting case of finite grids, \ie there are number-conserving non-uniform CAs on the infinite grid that have no analogous counterpart on finite grids~\cite{wolnik2023jins20b}.
+
+At present, the Gdańsk group is investigating one-dimensional non-uniform binary CAs with four-cell neighborhoods~\cite{makuracki2025, makuracki2026}. As is common in the theory of cellular automata, increasing the neighborhood size even by one cell only leads to doubly exponential growth in complexity, rendering this case substantially more involved and significantly more demanding from a computational perspective. Nevertheless, the investigation has already reached an advanced stage, and a comprehensive characterization of this class of cellular automata is expected in the near future.
+
+
+\section{Final Reflections}\label{sec:final}
+
+\Basia{Tutaj trzeba to jeszcze przemyśleć. Na ten moment jakiś tekst, w którym umieściłam jeszcze trzy nasze cytowania, żeby były...}
+
+The development of new theoretical tools, together with their computational realization, constitutes one of the central objectives of our research. This approach is directly inspired by the research methodology cultivated by Profesor Danuta Makowiec, and assumed close and sustained collaboration across disciplines. Following this paradigm, our research group has been deliberately formed as an interdisciplinary team comprising researchers from mathematics, computer science, and related fields, supported by the use of high-performance computing (HPC) solutions.
+
+The structure of our investigation reflects over a decade of experience during which this interdisciplinary methodology has proven to be both effective and reliable. It is based on the continuous interaction of specialists from different domains, where theoretical advances are guided by insights obtained from computational experiments, and theoretical hypotheses are subjected to early-stage verification through computer simulations. This interplay between theory and computation not only enabled us to obtain the results presented in the preceding sections, but also allowed us to identify and critically reassess several erroneous results previously reported in the literature~\cite{wolnik2021500315,wolnik2021s02181,8579003}. Within this framework, theoretical analysis, practical applications, and experimentation remain tightly interwoven throughout the entire research process.
 
 
 \bibliography{papers-with-abstracts,conference-talks}
