@@ -8,23 +8,11 @@
 \usepackage{subfig}
 %\usepackage{orcidlink}%
 
-\theoremstyle{thmstyleone}%
-\newtheorem{theorem}{Theorem}%
-\newtheorem{proposition}[theorem]{Proposition}%
-
-\theoremstyle{thmstyletwo}%
-\newtheorem{example}{Example}%
-\newtheorem{remark}{Remark}%
-
-\theoremstyle{thmstylethree}%
-\newtheorem{definition}{Definition}%
-
 \newcommand{\ie}{\emph{i.e.}, } 
-\newcommand{\Basia}[1]{{\color{blue}  #1}}
 
 \begin{document} 
 
-\title{Danuta Makowiec and the rise of Gdańsk School of Cellular Automata}
+\title{Danuta Makowiec and the rise of Gdansk School of Cellular Automata}
 
 \author[1]{\fnm{Barbara} \sur{Wolnik}}%\,\orcidlink{0000-0003-2935-5529}}
 \author*[2]{\fnm{Witold} \sur{Bołt}}\email{Witold.Bolt@jit.team}%,\orcidlink{0000-0001-6787-2100}
@@ -38,11 +26,11 @@
 \author[1]{\fnm{Anna} \sur{Nenca}}%\,\orcidlink{0000-0003-2746-1061}
 \author[1]{\fnm{Adam} \sur{Rutkowski}}%\,\orcidlink{0000-0002-8393-8170}
 
-\affil[1]{\orgdiv{Faculty of Mathematics, Physics and Informatics}, \orgname{University of Gdańsk}, \orgaddress{\street{Wita Stwosza 57}, \city{Gdańsk}, \postcode{80-308}, \country{Poland}}}
+\affil[1]{\orgdiv{Faculty of Mathematics, Physics and Informatics}, \orgname{University of Gdansk}, \orgaddress{\street{Wita Stwosza 57}, \city{Gdansk}, \postcode{80-308}, \country{Poland}}}
 \affil[2]{\orgname{Jit Team}, \orgaddress{\street{Łużycka 8C}, \city{Gdynia}, \postcode{81-537}, \country{Poland}}}
 \affil[3]{\orgname{Gemini Polska}}
 
-\abstract{The Gdańsk School of Cellular Automata (GSCA) has, over the last decade, developed a coherent program that bridges theory with exploratory computation. We review results on (i) identifying cellular automata from partial, noisy observations, (ii) affine continuous cellular automata (ACCAs) and their links to stochastic and deterministic rules, (iii) relaxed density classification using ACCAs, (iv) parity classification bounds and constructive single-rule solutions, and (v) number-conserving and state-conserving cellular automata across uniform, non-uniform, and non-square grids, including split-and-perturb decompositions, graph-based enumerations, reversible subclasses, and traffic-like particle-flow rules. The survey is written in the spirit of prof.\,Danuta Makowiec’s emphasis on combining rigorous analysis with computational experimentation, and aims to serve both as a guide for newcomers and as a blueprint for future collaborative work.}
+\abstract{The Gdansk School of Cellular Automata (GSCA) has, over the last decade, developed a coherent program that bridges theory with exploratory computation. We review results on (i) identifying cellular automata from partial, noisy observations, (ii) affine continuous cellular automata (ACCAs) and their links to stochastic and deterministic rules, (iii) relaxed density classification using ACCAs, (iv) parity classification bounds and constructive single-rule solutions, and (v) number-conserving and state-conserving cellular automata across uniform, non-uniform, and non-square grids, including split-and-perturb decompositions, graph-based enumerations, reversible subclasses, and traffic-like particle-flow rules. The survey is written in the spirit of prof.\,Danuta Makowiec’s emphasis on combining rigorous analysis with computational experimentation, and aims to serve both as a guide for newcomers and as a blueprint for future collaborative work.}
 
 \keywords{cellular automata, affine continuous cellular automata, system identification, density classification problem, parity problem, number-conserving cellular automata, state-conserving cellular automata, non-uniform cellular automata, reversibility, traffic flow}
 
@@ -57,7 +45,7 @@ A distinguishing feature of her academic activity was a teaching philosophy root
 While such a methodology is well established in the physical sciences, it represented an innovative and formative experience for young mathematicians and computer scientists attending her courses.
 For many of them, this approach not only shaped their understanding of complex systems, but also decisively influenced their scientific identity.
 
-It was this unique educational atmosphere and, above all, the research paradigm uniting theory with experimentation, that motivated one of prof.\, Makowiec's former computer science and mathematics students -- Witold Bołt, to continue working on CAs after finishing studies. Thanks to the collaboration with KERMIT Research Unit from the Ghent University, lead by prof. Bernard De Baets the first research project of yet-to-be-formed science group started. This in turn quickly led to building up broader interest in studies on CAs in Gdansk, with Barbara Wolnik -- a theoretical mathematician from Gdansk, being the key person building up the team and taking the role of a research lead. This partnership gave rise to the Gdańsk School of Cellular Automata (GSCA).
+It was this unique educational atmosphere and, above all, the research paradigm uniting theory with experimentation, that motivated one of prof.\, Makowiec's former computer science and mathematics students -- Witold Bołt, to continue working on CAs after finishing studies. Thanks to the collaboration with KERMIT Research Unit from the Ghent University, lead by prof. Bernard De Baets the first research project of yet-to-be-formed science group started. This in turn quickly led to building up broader interest in studies on CAs in Gdansk, with Barbara Wolnik -- a theoretical mathematician from Gdansk, being the key person building up the team and taking the role of a research lead. This partnership gave rise to the Gdansk School of Cellular Automata (GSCA).
 
 The research carried out within GSCA focuses primarily on theoretical aspects of CAs, with particular emphasis on number-conserving rules, global computational capabilities (notably density and parity classification), and the problem of rule identification. Over the past decade, members of GSCA have published more than 30 peer-reviewed articles and presented their results at more than 20 international conferences and workshops.
 Moreover, as a direct outcome of research conducted within the group, two members defended their master's theses (Aleksander Bołt and Aleksander Wardyn), three members defended their PhD dissertations (Adam Dzedzej, Witold Bołt, and Marcin Dembowski), and finally, Barbara Wolnik obtained her habilitation.
@@ -230,7 +218,7 @@ In the case of finite grids, it has been shown that, irrespective of whether per
 \label{fig:n-u}
 \end{figure}
 
-This characterization made it possible, among other results, to enumerate all number-conserving non-uniform elementary CAs, as well as those that are reversible. It was shown that for a grid consisting of $n$ cells, the number of number-conserving non-uniform elementary CAs is $F_n^2$, while the number of reversible ones is $F_n$, where $F_n$ denotes the $n$th Fibonacci number.
+This characterization made it possible, among other results, to enumerate all number-conserving non-uniform elementary CAs, as well as those that are reversible. It was shown that for a grid consisting of $n$ cells, the number of number-conserving non-uniform elementary CAs is $F_n^2$, while the number of reversible ones is $F_n$, where $F_n$ denotes the $n$-th Fibonacci number.
 
 The case of the infinite grid came as a big surprise. Previously, it was believed that the answer to what number-conserving non-uniform elementary CAs on the infinite grid look like could be obtained by performing simulations on finite grids of increasing length. However, it turned out that, unlike when considering number conservation for classical CAs, the infinite grid cannot be treated as a limiting case of finite grids, \ie there are number-conserving non-uniform CAs on the infinite grid that have no analogous counterpart on finite grids~\cite{wolnik2023jins20b}.
 
@@ -240,7 +228,7 @@ At present, the we are investigating one-dimensional non-uniform binary CAs with
 
 In this paper we summarized the key results of our broad research on CAs -- starting from identification problem, going forward with ACCAs, DCP, parity problem, number and state conservation and finally non-uniform CAs. In all these research directions, we were able to advance to state-of-the-art by uncovering new properties, introducing new tools, forming new generalizations or simplifications. Despite the fact, that some of the topics may initially seem disconnected, we shown how they naturally emerged from each other, building upon earlier experiments and discoveries. In all of the considered topics, the key element of the success was the one that was given to us by prof.\ Danuta Makowic -- combination of experimentation with rigorous analytical approach. This culture of work was possible due to formation of a truly interdisciplinary team of computer scientists, mathematicians and physicians working together, supported by modern computation techniques inducing high-performance computing (HPC) solutions. This interplay between theory and computation not only enabled us to obtain the results presented in the preceding sections, but also allowed us to identify and critically reassess several erroneous results previously reported in the literature~\cite{wolnik2021500315,wolnik2021s02181,8579003}.
 
-\section*{Acknowledgements}
+\section*{Acknowledgments}
 The authors would like to thank prof.\ Bernard De Baets -- lead of KERMIT Research Unit at Ghent University, for years of friendly, fruitful cooperation. GSCA would not existing with his support and involvement.
 
 \bibliography{papers-with-abstracts}
