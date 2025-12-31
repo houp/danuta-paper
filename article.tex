@@ -15,17 +15,17 @@
 
 \title{Danuta Makowiec and the rise of Gdansk School of Cellular Automata}
 
-\author[1]{\fnm{Barbara} \sur{Wolnik}}%\,\orcidlink{0000-0003-2935-5529}}
 \author*[2]{\fnm{Witold} \sur{Bołt}}\email{Witold.Bolt@jit.team}%,\orcidlink{0000-0001-6787-2100}
 \author[1]{\fnm{Antoni} \sur{Augustynowicz}}%\,\orcidlink{0000-0002-0748-4867}
 \author[2]{\fnm{Aleksander} \sur{Bołt}}%\,\orcidlink{0000-0002-4888-2722}
 \author[]{\fnm{Marcin} \sur{Dembowski}}%\,\orcidlink{0000-0002-5824-9779} %% no affil !!!
-\author[1]{\fnm{Maciej} \sur{Dziemiańczuk}}%\,\orcidlink{0000-0002-0553-7750}
 \author[3]{\fnm{Adam} \sur{Dzedzej}}%\,\orcidlink{0000-0002-1974-7927}
+\author[1]{\fnm{Maciej} \sur{Dziemiańczuk}}%\,\orcidlink{0000-0002-0553-7750}
 \author[1]{\fnm{Dominik} \sur{Falkiewicz}}%\,\orcidlink{0000-0001-7755-7745}
 \author[1]{\fnm{Bartosz} \sur{Makuracki}}%\,\orcidlink{0000-0003-1102-6321}
 \author[1]{\fnm{Anna} \sur{Nenca}}%\,\orcidlink{0000-0003-2746-1061}
 \author[1]{\fnm{Adam} \sur{Rutkowski}}%\,\orcidlink{0000-0002-8393-8170}
+\author[1]{\fnm{Barbara} \sur{Wolnik}}%\,\orcidlink{0000-0003-2935-5529}}
 
 \affil[1]{\orgdiv{Faculty of Mathematics, Physics and Informatics}, \orgname{University of Gdansk}, \orgaddress{\street{Wita Stwosza 57}, \city{Gdansk}, \postcode{80-308}, \country{Poland}}}
 \affil[2]{\orgname{Jit Team}, \orgaddress{\street{Łużycka 8C}, \city{Gdynia}, \postcode{81-537}, \country{Poland}}}
@@ -91,9 +91,9 @@ ACCAs are the simplest possible such generalization of binary CAs, as they have 
 ACCAs from one point of view have a relatively simple formulation and can be seen as the most natural generalization of finite-state CAs to the continuous state space. On the other hand, surprisingly, they were rarely studied in the past. To better understand their properties, in \cite{bot2015jjocs2} we built a more general form of ACCAs as a generalization of multi-state CAs, with the use of $[0,1]^n$ state space, and studied some of their connections with SCAs. In \cite{bolt2014} we proposed a novel experiment, which turned out to open multiple new research directions. We tried to experimentally find ACCAs that solve the Density Classification Problem (DCP) with the use of evolutionary algorithms. In DCP we seek a CA that, for an arbitrary (binary) initial configuration of odd length, reaches a final state of all-0s or all-1s, depending on the initial density of 1s (number of 1s in the initial configuration). It is known from the literature that DCP cannot be solved with CAs \cite{PhysRevLett.74.5148}. The early experimental results in \cite{bolt2014} were very promising and led GSCA to continue the efforts in two separate, yet connected tracks. First, further study of the DCP in the context of ACCAs. Second, to study specific, detailed properties of ACCAs relevant to the DCP, with strongest focus on number-conserving CAs (CAs conserving sum of states), which is covered in a separate section of this article, and legal, outer-totalistic CAs (CAs whose rules depend on the central cell state and the sum of states of its neighborhood).
 
 Our novel research showed that legal outer-totalistic ACCAs exhibit rich dynamics and multiple modes of sensitivity to parameters, grid size, and single-site perturbations \cite{wolnik2022s11071}. 
-Thanks to massive numerical simulations, we have been able to partition the rule space into classes with distinct behavior. A unique combination of computer simulations (sometimes quite advanced) and a panoply of analytical methods allowed us to lay bare the dynamics of each and every one of these ACCAs and confirm all results theoretically. In particular, the results obtained established that the dynamics of ACCAs is much richer than their classical counterparts. These properties underpin later constructions for density and parity classification tasks.
+Thanks to massive numerical simulations, we have been able to partition the rule space into classes with distinct behavior. A unique combination of computer simulations (sometimes quite advanced) and a panoply of analytical methods allowed us to lay bare the dynamics of each and every one of these ACCAs and confirm all results theoretically. In particular, the results obtained established that the dynamics of ACCAs is much richer than their classical counterparts. These properties underpin later constructions for density classification tasks.
 
-In \cite{dembowski2017s11047} we showed that ACCAs can successfully solve DCP for fixed-size systems (fixed maximal number of cells) in one dimension, yet a full solution to the DCP in the traditional sense is not possible just like traditional CAs. Yet, we were able to show that with a very simple relaxation of the DCP problem, we can find general solutions with ACCAs. Our idea was very simple: since we use ACCAs, \ie $[0,1]$ is the state set, we don't need to converge to all-0s or all-1s configuration to have an unambiguous answer. We may consider a ``relaxed'' formulation in which the output needs to be ``all cells less (or greater) than $0.5$'' depending on the initial density. Knowing the detailed characterization of one-dimensional density-conserving ACCAs with radius one obtained in~\cite{wolnik2022s11071}, it was relatively easy to show that almost all of them solve this relaxed DCP~\cite{wolnik2016978331,wolnik2017aa7d86}. This result was further extended to the two-dimensional case in \cite{8617353} where ACCAs with von Neumann neighborhood were used.
+In \cite{dembowski2017s11047} we showed that ACCAs can successfully solve DCP for fixed-size systems (fixed maximal number of cells) in one dimension, yet a full solution to the DCP in the traditional sense is not possible just like traditional CAs. Yet, we were able to show that with a very simple relaxation of the DCP problem, we can find general solutions with ACCAs. Our idea was very simple: since we use ACCAs, \ie $[0,1]$ is the state set, we do not need to converge to all-0s or all-1s configuration to have an unambiguous answer. We may consider a ``relaxed'' formulation in which the output needs to be ``all cells less (or greater) than $0.5$'' depending on the initial density. Knowing the detailed characterization of one-dimensional density-conserving ACCAs with radius one obtained in~\cite{wolnik2022s11071}, it was relatively easy to show that almost all of them solve this relaxed DCP~\cite{wolnik2016978331,wolnik2017aa7d86}. This result was further extended to the two-dimensional case in \cite{8617353} where ACCAs with von Neumann neighborhood were used.
 
 \section{Parity Problem}\label{sec:parity}
 
@@ -189,7 +189,7 @@ Recently, our research has also covered $d$-dimensional number-conserving binary
 \begin{figure}[!ht]
 \centering
 \includegraphics[width=0.9\textwidth]{fig_06.pdf}
-\caption{An example of an oscillator that occurs in the evolution of one of the two-dimensional number-conserving binary CAs with Moore neighborhood (the so-called CA $D$ described in~\cite{falkiewicz2025}).}
+\caption{An example of an oscillator that occurs in the evolution of one of the two-dimensional number-conserving binary CAs with the Moore neighborhood (the so-called CA $D$ described in~\cite{falkiewicz2025}).}
 \label{fig:D}
 \end{figure}
 
@@ -202,7 +202,7 @@ The $(\Omega,\Lambda)$ framework also makes it possible to follow the motion of 
 \label{fig:Dcolors}
 \end{figure}
 
-We anticipate that this line of investigation will be brought to completion in the near future. The research described above also raised many new and interesting questions and yielded several unexpected results that seem to contradict earlier intuitions (see, for instance the survey papers~\cite{wolnik2025978303, wolnik2025978303b}. All this shows that we still do not fully understand these seemingly very simple dynamic systems.
+We anticipate that this line of investigation will be brought to completion in the near future. The research described above also raised many new and interesting questions and yielded several unexpected results that seem to contradict earlier intuitions (see, for instance the survey papers~\cite{wolnik2025978303, wolnik2025978303b}). All this shows that we still do not fully understand these seemingly very simple dynamic systems.
 
 \section{Non-uniform CAs}\label{sec:non-u}
 
@@ -215,7 +215,7 @@ In the case of finite grids, it has been shown that, irrespective of whether per
 \begin{figure}[!ht]
 \centering
 \includegraphics[width=0.8\textwidth]{non-uniform.pdf}
-\caption{Illustration of the evolution of some number-conserving non-uniform elementary CA on a finite grid (with periodic boundary conditions). Each such CA is either a classical (uniform) number-conserving elementary CA or it is a conglomerate of components, which can be of four different types only ($Id$, $S$, $A_n$ and $B_n$) and each of them has a very poor dynamics. Moreover, each component of the conglomerate ``lives its own life'', as if there were impermeable barriers between adjacent components.}
+\caption{Illustration of the evolution of some number-conserving non-uniform elementary CA on a finite grid (with periodic boundary conditions). Each such CA is either a classical (uniform) number-conserving elementary CA or it is a conglomerate of components, which can be of four different types only ($Id$, $S$, $A_k$ and $B_k$) and each of them has a very poor dynamics. Moreover, each component of the conglomerate ``lives its own life'', as if there were impermeable barriers between adjacent components.}
 \label{fig:n-u}
 \end{figure}
 
@@ -228,6 +228,8 @@ At present, we are investigating one-dimensional non-uniform binary CAs with fou
 \section{Summary}\label{sec:final}
 
 In this paper we summarized the key results of our broad research on CAs -- starting from the identification problem, going forward with ACCAs, DCP, the parity problem, number and state conservation, and finally non-uniform CAs. In all these research directions, we were able to advance to state-of-the-art by uncovering new properties, introducing new tools, and forming new generalizations or simplifications. Despite the fact that some of the topics may initially seem disconnected, we showed how they naturally emerged from each other, building upon earlier experiments and discoveries. In all of the considered topics, the key element of success was the one that was given to us by prof.\ Danuta Makowiec -- the combination of experimentation with a rigorous analytical approach. This culture of work was possible due to the formation of a truly interdisciplinary team of computer scientists, mathematicians and physicians working together, supported by modern computation techniques including high-performance computing (HPC) solutions. This interplay between theory and computation not only enabled us to obtain the results presented in the preceding sections, but also allowed us to identify and critically reassess several erroneous results previously reported in the literature~\cite{wolnik2021500315,wolnik2021s02181,8579003}. 
+
+\noindent {\bf TODO}: Write about future plans, open problems etc. What comes next.
 
 \section*{Acknowledgments}
 The authors would like to thank prof.\ Bernard De Baets -- leader of the KERMIT Research Unit at Ghent University -- for years of friendly, fruitful cooperation. GSCA would not exist without his support and involvement.
